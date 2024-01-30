@@ -2,9 +2,9 @@ const axios = require('axios');
 
 async function processData(req, res, next) {
     try {
-      const id = req.params.postId;
+      const postId = req.params.postId;
       const response = await axios.get('https://jsonplaceholder.typicode.com/comments');
-      const filtered = response.data.filter(obj => obj['postId'] == id);
+      const filtered = response.data.filter(obj => obj['postId'] == postId);
       res.json(filtered)
       
     } catch (error) {
